@@ -3,21 +3,39 @@
 import React, { useState, useEffect } from 'react';
 import { Heart } from 'lucide-react';
 
+// 1. On définit la structure d'un "Cœur"
+interface HeartItem {
+  id: number;
+  left: number;
+  delay: number;
+  duration: number;
+  size: number;
+}
+
+// 2. On définit la structure de la position (top/left peuvent être null au début)
+interface Position {
+  top: number | null;
+  left: number | null;
+}
+
 export default function App() {
-  const [accepted, setAccepted] = useState(false);
-  const [noBtnPosition, setNoBtnPosition] = useState({ top: null, left: null });
-  const [mounted, setMounted] = useState(false);
+  const [accepted, setAccepted] = useState<boolean>(false);
+
+  // On applique le type Position
+  const [noBtnPosition, setNoBtnPosition] = useState<Position>({ top: null, left: null });
+  const [mounted, setMounted] = useState<boolean>(false);
 
   // URLs des images
   const startImage = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWhwZDZ5ZmV4Z2x4Z2x4Z2x4Z2x4Z2x4Z2x4Z2x4Z2x4Z2x4ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/T86i6yDyOYz7J6dPhf/giphy.gif";
   const successImage = "/1000044236.gif";
 
-  // Génération des cœurs d'arrière-plan uniquement côté client pour éviter les erreurs d'hydratation
-  const [bgHearts, setBgHearts] = useState([]);
+  // 3. On applique le type HeartItem[] (Tableau de cœurs)
+  const [bgHearts, setBgHearts] = useState<HeartItem[]>([]);
 
   useEffect(() => {
     setMounted(true);
-    const hearts = Array.from({ length: 30 }).map((_, i) => ({
+    // On force le type ici aussi pour être sûr
+    const hearts: HeartItem[] = Array.from({ length: 30 }).map((_, i) => ({
       id: i,
       left: Math.random() * 100, // Position horizontale %
       delay: Math.random() * 5, // Délai d'animation
