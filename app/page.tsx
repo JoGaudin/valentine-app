@@ -10,7 +10,7 @@ export default function App() {
 
   // URLs des images
   const startImage = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWhwZDZ5ZmV4Z2x4Z2x4Z2x4Z2x4Z2x4Z2x4Z2x4Z2x4Z2x4ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/T86i6yDyOYz7J6dPhf/giphy.gif";
-  const successImage = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWhwZDZ5ZmV4Z2x4Z2x4Z2x4Z2x4Z2x4Z2x4Z2x4Z2x4Z2x4ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/T86i6yDyOYz7J6dPhf/giphy.gif";
+  const successImage = "/1000044236.gif";
 
   // Génération des cœurs d'arrière-plan uniquement côté client pour éviter les erreurs d'hydratation
   const [bgHearts, setBgHearts] = useState([]);
@@ -96,10 +96,10 @@ export default function App() {
           ))}
         </div>
 
-        <div className="z-10 text-center p-6 max-w-lg w-full bg-white/60 backdrop-blur-sm rounded-3xl shadow-xl border-4 border-white/80 transform hover:scale-[1.01] transition-transform duration-500">
+        <div className="z-10 text-center p-8 max-w-2xl w-full min-h-180 bg-white/60 backdrop-blur-sm rounded-3xl shadow-xl border-4 border-white/80 transform hover:scale-[1.01] transition-transform duration-500">
           {accepted ? (
               // --- ÉCRAN DE SUCCÈS ---
-              <div className="flex flex-col items-center animate-fade-in-up">
+              <div className="flex flex-col items-center justify-center animate-fade-in-up">
                 <h1 className="text-4xl md:text-6xl font-extrabold text-pink-600 mb-6 drop-shadow-sm font-serif">
                   Yaaay ! 💖
                 </h1>
